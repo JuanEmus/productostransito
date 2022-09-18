@@ -9,6 +9,7 @@
             <xpath expr="//field[@name='price_unit']" position="after">
                 <field name="entransito"/>
                 <field name="cancelados"/>
+                <field name="devueltos" string="Devoluciones"/>
             </xpath>
         </field>
     </record>
@@ -32,8 +33,11 @@
     <record id="productostransito_action" model="ir.actions.act_window">
         <field name="name">Productos en tránsito compras</field>
         <field name="res_model">purchase.order.line</field>
-        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree,form</field>
         <field name="view_id" ref="productostransito_view_list"/>
+        <field name="context" eval="{
+            'search_default_productos_transito': 1,
+        }"/>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">
                 No hay productos que mostrar
@@ -54,7 +58,7 @@
         <field name="view_id" ref="productostransito_view_form"/>
         <field name="act_window_id" ref="productostransito_action"/>
     </record>
-
+    
     <record id="productostransito_view_list" model="ir.ui.view">
         <field name="name">productostransito.view.list.inherited</field>
         <field name="model">purchase.order.line</field>

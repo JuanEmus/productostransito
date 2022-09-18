@@ -10,7 +10,7 @@
                     <group>
                         <group>
                             <h1>
-                                <field name="order_id" string="Referencia de la orden"/>
+                                <field name="referencia_pedido" string="Referencia de la orden"/>
                             </h1>
                             <field name="name" string="Nombre del artículo"/>
                             <field name="almacen" string="Almacén"/>
@@ -21,6 +21,7 @@
                             <field name="qty_received" string="Cantidad recibida"/>
                             <field name="entransito" string="En tránsito"/>
                             <field name="cancelados" string="Cancelados"/>
+                            <field name="devueltos" string="Devoluciones"/>
                         </group>                   
                     </group>
                 </sheet>
@@ -47,9 +48,12 @@
             <tree string="Productos en tránsito general">
                 <field name="order_id"/>
                 <field name="product_id"/>
+                <field name="product_uom"/>
+                <field name="product_qty"/>
                 <field name="qty_received"/>
                 <field name="entransito_store" sum="Total de productos en tránsito"/>
                 <field name="almacen"/>
+                <field name="date_planned"/>
             </tree>
         </field>
     </record>
